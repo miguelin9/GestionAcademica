@@ -160,18 +160,6 @@ public class SimpleCORSFilter implements Filter {
 }
 ```
 
-## Puntuación rápida
 
-Básicamente, por la documentación y el servicio REST se obtendrá el 50% de la nota. 
-Si no se hace cliente, se deberán crear varios scripts o comandos CURL de test para probarlo.
-
-Del 50% restante, 20% es conseguir en el cliente una interfaz maestro/detalle y 30% 
-por el resto de CRUD desde el cliente.
-
-El cliente debe estar implementado usando jQuery y la comunicación entre cliente/servidor con XML/JSON.
-
-Si el cliente no usa JavaScript pero está en HTML, la nota máxima posible sería 60% (sobre el 100%).
-
-Si se implementa un lector de código de barras con XDK para un CRUD, estás exento del maestro/detalle.
 
 
