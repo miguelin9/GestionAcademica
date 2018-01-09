@@ -63,7 +63,7 @@ $.asignatura.AsignaturaCreateREST = function () {
     if (datos.nombre.length > 2 && datos.ciclo.length > 2 && datos.curso.length > 0) {
         // doPost(target, datos, fn_exito)
         $.controller.doPost(
-            $.this.HOST + $.this.URL,
+            this.HOST + this.URL,
             datos,
             function () {
                 // probamos que se ha actualizado cargando de nuevo la lista -no es necesario-

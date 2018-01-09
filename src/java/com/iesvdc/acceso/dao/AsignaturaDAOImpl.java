@@ -38,7 +38,7 @@ public class AsignaturaDAOImpl implements AsignaturaDAO {
     @Override
     public void create(Asignatura as) throws DAOException {
         try {
-            if (as.getCiclo().length() > 3 || as.getCurso() > 1 || as.getNombre().length() > 3) {
+            if (as.getCiclo().length() > 3 || as.getCurso() > 0 || as.getNombre().length() > 3) {
                 Connection con = obtenerConexion();
                 PreparedStatement pstm = con.prepareStatement("INSERT INTO ASIGNATURA VALUES(NULL, ?,?,?)");
                 pstm.setString(1, as.getNombre());
@@ -55,8 +55,25 @@ public class AsignaturaDAOImpl implements AsignaturaDAO {
     }
 
     @Override
-    public void update() throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Asignatura old_asig, Asignatura new_asig) throws DAOException {
+        update(old_asig.getId(), new_asig);
+    }
+    
+    @Override
+    public void update(Integer old_id, Asignatura new_asig) throws DAOException {
+        try {
+            Connection con = obtenerConexion();
+            PreparedStatement pstm = con.prepareStatement(" UPDATE ASIGNATURA SET id=?, nombre=?, curso=?, ciclo=? WHERE id=?");
+            pstm.setInt(5, old_id);
+            pstm.setInt(1, new_asig.getId());
+            pstm.setString(2, new_asig.getNombre());
+            pstm.setInt(3, new_asig.getCurso());
+            pstm.setString(4, new_asig.getCiclo());
+            pstm.execute();
+            con.close();
+        } catch (SQLException ex) {
+            throw new DAOException("Asignatura:Update: No puedo conectar a la BBDD");
+        }
     }
 
     @Override

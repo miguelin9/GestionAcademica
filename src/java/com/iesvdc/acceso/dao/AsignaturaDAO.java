@@ -18,7 +18,8 @@ import java.util.List;
  */
 public interface AsignaturaDAO {
     void create(Asignatura as) throws DAOException;
-    void update() throws DAOException;
+    void update(Asignatura old_asig, Asignatura new_asig) throws DAOException;
+    void update(Integer old_id, Asignatura new_asig) throws DAOException;
     void delete() throws DAOException;
     List<Asignatura> findAll() throws DAOException;
     List<Asignatura> findByName(String name) throws DAOException;
