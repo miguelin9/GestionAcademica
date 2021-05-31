@@ -28,9 +28,7 @@ $.controller.activate = function (panel_name) {
 $.controller.login = function () {
     $.controller.username = $("#username").val();
     $.controller.password = $("#password").val();
-    $("#user_login").empty();
-    $("#user_login").append($.controller.username);
-    // $.controller.activate("#panel_main");
+    $.controller.activate("#panel_main");
 };
 
 /**
@@ -57,12 +55,8 @@ $.controller.errorManager = function (codigo) {
         case 500: // error interno
             $.controller.error("Error 500", "No se ha podido completar la operación en el servidor");
             break;
-        case 404: // error interno
-            $.controller.error("Error 404", "No se ha encontrado el recurso");
-            break;
         case 401: // no autorizado
-            // $.controller.activate("#panel_login");
-            $('#modal_login').modal('open');
+            $.controller.activate("#panel_login");
             break;
         case 204: // sin respuesta (ej. tras un delete o un put
             $.controller.activate("#panel_main");
@@ -131,7 +125,7 @@ $.controller.doGet = function (target, fn_exito) {
  */
 $.controller.doPost = function(target, datos, fn_exito) {
     $.ajax({
-            url: target,
+            url: $.alumno.HOST + $.alumno.URL,
             type: 'POST',
             dataType: 'json',
             contentType: "application/json",

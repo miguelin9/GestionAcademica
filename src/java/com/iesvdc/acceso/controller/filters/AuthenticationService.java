@@ -36,7 +36,7 @@ public class AuthenticationService {
                         // call some UserService/LDAP here
                         Conexion conexion = new Conexion();
                         Connection con = conexion.getConexion();
-                        String sql = "SELECT * FROM usuario WHERE USERNAME=? AND PASSWORD=?";
+                        String sql = "SELECT * FROM Usuarios WHERE username=? AND password=?";
                         PreparedStatement pstm = con.prepareStatement(sql);
                         pstm.setString(1, username);
                         pstm.setString(2, password);

@@ -28,11 +28,6 @@ public class Profesor {
     public Profesor() {
     }
 
-    public Profesor(String nombre, String apellido) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-    }
-
     public Profesor(Integer id, String nombre, String apellido) {
         this.id = id;
         this.nombre = nombre;

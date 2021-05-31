@@ -11,7 +11,6 @@ $(document).ready(
                 draggable: true // Choose whether you can drag to open on touch screens
             });
             $('.button-collapse').sideNav('show');
-            $('.modal').modal();
             // $(".button-collapse").sideNav();
             $('.collapsible').collapsible();
 

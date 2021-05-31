@@ -33,8 +33,8 @@ $.alumno.AlumnoReadREST = function () {
             this.HOST + this.URL,
             function (json) {
                 $($.alumno.panel_list).empty();
-                $($.alumno.panel_list).append('<h4>Listado de Alumnos</h4>');
-                var table = $('<table />').addClass('responsive-table highlight');
+                $($.alumno.panel_list).append('<h3>Listado de Alumnos</h3>');
+                var table = $('<table />').addClass('table table-stripped');
 
                 table.append($('<thead />').append($('<tr />').append('<th>id</th>', '<th>nombre</th>', '<th>apellidos</th>')));
                 var tbody = $('<tbody />');
@@ -45,7 +45,7 @@ $.alumno.AlumnoReadREST = function () {
                 table.append(tbody);
 
                 $($.alumno.panel_list).append($('<div />').append(table));
-                //$('tr:odd').css('background', '#CCCCCC');
+                $('tr:odd').css('background', '#CCCCCC');
             });
 };
 
@@ -135,8 +135,8 @@ $.alumno.AlumnoUpdateREST = function (id, envio) {
             this.HOST + this.URL,
             function (json) {
                 $($.alumno.panel_list).empty();
-                $($.alumno.panel_list).append('<h4>Pulse sobre un alumno</h4>');
-                var table = $('<table />').addClass('responsive-table highlight');
+                $($.alumno.panel_list).append('<h3>Pulse sobre un alumno</h3>');
+                var table = $('<table />').addClass('table table-stripped');
 
                 table.append($('<thead />').append($('<tr />').append('<th>id</th>', '<th>nombre</th>', '<th>apellidos</th>')));
                 var tbody = $('<tbody />');
@@ -147,7 +147,7 @@ $.alumno.AlumnoUpdateREST = function (id, envio) {
                 }
                 table.append(tbody);
                 $($.alumno.panel_list).append($('<div />').append(table));
-                // $('tr:odd').css('background', '#CCCCCC');
+                $('tr:odd').css('background', '#CCCCCC');
                 $.controller.activate($.alumno.panel_list);
             });
     } else if (envio === undefined) {
@@ -194,7 +194,7 @@ $.alumno.AlumnoUpdateREST = function (id, envio) {
  */
 $.alumno.error = function (title, msg) {
     $($.alumno.panel_erro).empty();
-    $($.alumno.panel_erro).append('<h4>' + title + '</h4>');
+    $($.alumno.panel_erro).append('<h3>' + title + '</h3>');
     $($.alumno.panel_erro).append('<p>' + msg + '</p>');
 
     // cargamos el panel con id r_alumno.
